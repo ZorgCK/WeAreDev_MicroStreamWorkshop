@@ -1,0 +1,13 @@
+micronaut:
+  application:
+    name: weAreDevs_Workshop
+netty:
+  default:
+    allocator:
+      max-order: 3
+microstream:
+  storage:
+    main: 
+      root-class: 'one.microstream.Data' 
+      storage-directory: '/Users/sdelamo/Documents/MicroStreamData'
+      channel-count: 4 
