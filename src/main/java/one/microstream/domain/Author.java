@@ -11,7 +11,6 @@ public class Author
 	public Author()
 	{
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	public Author(String id, String firstname, String lastname, String email, String gender)

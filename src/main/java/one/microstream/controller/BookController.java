@@ -6,7 +6,6 @@ import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import one.microstream.domain.Book;
-import one.microstream.storage.DB;
 import one.microstream.utils.MockupUtils;
 
 
@@ -18,47 +17,18 @@ public class BookController
 	{
 		List<Book> loadMockupData = MockupUtils.loadMockupData();
 		
-		DB.root.getBooks().addAll(loadMockupData);
-		DB.storageManager.store(DB.root.getBooks());
+		// DB.root.getBooks().addAll(loadMockupData);
+		// DB.storageManager.store(DB.root.getBooks());
 		
 		return HttpResponse.ok("Books successfully created!");
 	}
 	
 	@Get
-	public List<Book> getBook()
+	public List<Book> getBooks()
 	{
-		return DB.root.getBooks();
-	}
-	
-	@Get("/startsWith_A")
-	public List<Book> getBooksWithA()
-	{
-		// Enter your code here
+		// return DB.root.getBooks();
 		
 		return null;
 	}
 	
-	@Get("/clear")
-	public HttpResponse<?> clearBooks()
-	{
-		// Enter your code here
-		
-		return HttpResponse.ok("Books successfully cleared!");
-	}
-	
-	@Get("/updateSingle")
-	public HttpResponse<?> updateSingleBook()
-	{
-		// Enter your code here
-		
-		return HttpResponse.ok("Book successfully updated!");
-	}
-	
-	@Get("/updateMulti")
-	public HttpResponse<?> updateMultiBooks()
-	{
-		// Enter your code here
-		
-		return HttpResponse.ok("Bookss successfully updated!");
-	}
 }
