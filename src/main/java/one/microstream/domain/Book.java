@@ -7,9 +7,9 @@ import java.time.LocalDate;
 public class Book
 {
 	private String		isbn;
-	private String		name;
+	private String		bookName;
 	private LocalDate	release;
-	private BigDecimal	price;
+	private BigDecimal	pricePerBook;
 	private Author		author;
 	
 	public Book()
@@ -17,12 +17,12 @@ public class Book
 		super();
 	}
 	
-	public Book(String isbn, String name, LocalDate release, BigDecimal price, Author author)
+	public Book(String isbn, String bookName, LocalDate release, BigDecimal pricePerBook, Author author)
 	{
 		super();
 		this.isbn = isbn;
-		this.name = name;
-		this.price = price;
+		this.bookName = bookName;
+		this.pricePerBook = pricePerBook;
 		this.author = author;
 	}
 	
@@ -36,24 +36,24 @@ public class Book
 		this.isbn = isbn;
 	}
 	
-	public String getName()
+	public String getBookName()
 	{
-		return name;
+		return bookName;
 	}
 	
-	public void setName(String name)
+	public void setBookName(String bookName)
 	{
-		this.name = name;
+		this.bookName = bookName;
 	}
 	
-	public BigDecimal getPrice()
+	public BigDecimal getPricePerBook()
 	{
-		return price;
+		return pricePerBook;
 	}
 	
-	public void setPrice(BigDecimal price)
+	public void setPricePerBook(BigDecimal pricePerBook)
 	{
-		this.price = price;
+		this.pricePerBook = pricePerBook;
 	}
 	
 	public Author getAuthor()

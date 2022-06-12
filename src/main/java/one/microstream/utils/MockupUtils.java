@@ -82,14 +82,14 @@ public class MockupUtils
 		Book b = new Book();
 		
 		b.setIsbn((String)book.get("isbn"));
-		b.setName((String)book.get("name"));
+		b.setBookName((String)book.get("name"));
 		
 		String release = (String)book.get("release");
 		LocalDate date = LocalDate.parse(release, DateTimeFormatter.ofPattern("yyyy/MM/dd"));
 		b.setRelease(date);
 		
 		Double price = (Double)book.get("price");
-		b.setPrice(new BigDecimal(price));
+		b.setPricePerBook(new BigDecimal(price));
 		
 		Long authorID = (Long)book.get("author");
 		b.setAuthor(authors.stream().filter(a -> a.getId().equals(authorID.toString())).findFirst().get());
