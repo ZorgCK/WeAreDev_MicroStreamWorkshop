@@ -8,6 +8,6 @@ netty:
 microstream:
   storage:
     main: 
-      root-class: 'one.microstream.Data' 
-      storage-directory: '/Users/sdelamo/Documents/MicroStreamData'
+      root-class: 'one.microstream.storage.Data' 
+      storage-directory: '/Users/WeAreDevsStorage'
       channel-count: 4 
