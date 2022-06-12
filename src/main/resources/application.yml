@@ -5,9 +5,3 @@ netty:
   default:
     allocator:
       max-order: 3
-microstream:
-  storage:
-    main: 
-      root-class: 'one.microstream.storage.Data' 
-      storage-directory: '/Users/WeAreDevsStorage'
-      channel-count: 4 

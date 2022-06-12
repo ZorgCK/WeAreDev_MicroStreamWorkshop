@@ -1,21 +1,19 @@
 package one.microstream.storage;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 import io.micronaut.core.annotation.Introspected;
-import io.micronaut.core.annotation.NonNull;
-import one.microstream.domain.Customer;
+import one.microstream.domain.Book;
 
 
 @Introspected
 public class Data
 {
-	private Map<String, Customer> customers = new HashMap<>();
+	private final List<Book> books = new ArrayList<Book>();
 	
-	@NonNull
-	public Map<String, Customer> getCustomers()
+	public List<Book> getBooks()
 	{
-		return this.customers;
+		return books;
 	}
 }
