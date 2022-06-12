@@ -1,4 +1,4 @@
-package one.microstream;
+package one.microstream.dal;
 
 import java.util.Collection;
 import java.util.Optional;
@@ -8,6 +8,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import io.micronaut.core.annotation.NonNull;
+import one.microstream.domain.Customer;
 
 
 public interface CustomerAccess
@@ -17,7 +18,7 @@ public interface CustomerAccess
 	@NonNull
 	Customer insert(@NonNull @NotNull @Valid Customer customer);
 	
-	void update(
+	Customer update(
 		@NonNull @NotBlank String id,
 		@NonNull @NotNull @Valid Customer customer);
 	

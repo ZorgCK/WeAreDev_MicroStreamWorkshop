@@ -7,8 +7,8 @@ import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import jakarta.inject.Inject;
-import one.microstream.Customer;
-import one.microstream.CustomerAccess;
+import one.microstream.dal.CustomerAccess;
+import one.microstream.domain.Customer;
 
 
 @Controller("/customer")

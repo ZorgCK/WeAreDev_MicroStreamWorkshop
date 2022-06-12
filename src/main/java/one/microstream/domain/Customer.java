@@ -1,4 +1,4 @@
-package one.microstream;
+package one.microstream.domain;
 
 import javax.validation.constraints.NotBlank;
 

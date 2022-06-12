@@ -1,4 +1,4 @@
-package one.microstream;
+package one.microstream.dal;
 
 import java.util.Collection;
 import java.util.Optional;
@@ -10,6 +10,8 @@ import javax.validation.constraints.NotNull;
 
 import jakarta.inject.Singleton;
 import one.microstream.concurrency.XThreads;
+import one.microstream.domain.Customer;
+import one.microstream.storage.Data;
 import one.microstream.storage.types.StorageManager;
 
 
@@ -36,30 +38,36 @@ public class CustomerAccessImpl implements CustomerAccess
 		{
 			String id = UUID.randomUUID().toString();
 			data().getCustomers().put(id, customer);
-			storageManager.store(data().getCustomers()); //
+			storageManager.store(data().getCustomers());
 			return customer;
 		});
 	}
 	
 	@Override
-	public void update(@NotBlank String id, @NotNull @Valid Customer customer)
+	public Customer update(@NotBlank String id, @NotNull @Valid Customer customer)
 	{
-		// TODO Auto-generated method stub
-		
+		return XThreads.executeSynchronized(() ->
+		{
+			Customer oldCust = data().getCustomers().get(id);
+			oldCust.setFirstName(customer.getFirstName());
+			oldCust.setLastName(customer.getLastName());
+			
+			storageManager.store(oldCust);
+			return oldCust;
+		});
 	}
 	
 	@Override
 	public Optional<Customer> findById(@NotBlank String id)
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return Optional.of(data().getCustomers().get(id));
 	}
 	
 	@Override
 	public void deleteById(@NotBlank String id)
 	{
-		// TODO Auto-generated method stub
-		
+		data().getCustomers().remove(id);
+		storageManager.store(data().getCustomers());
 	}
 	
 	private Data data()
