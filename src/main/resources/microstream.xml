@@ -1,4 +1,3 @@
 <properties>
     <property name="storage-directory" value ="WeAreDevs" />
-    <property name="channel-count" value ="4" />
 </properties>
